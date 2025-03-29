@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cec8365c98337dc49af3877b67739b07, type: 3}
+  m_Name: GainTimeAmulet
+  m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: c8ba4f893163a934a9684234e2302d66, type: 2}
+  gainItemChance: {fileID: 11400000, guid: 6c907126851778a4aa1447e8846ed320, type: 2}
