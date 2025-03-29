@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b687e4fbe3fee2a4cb29be467af14fff, type: 3}
+  m_Name: "Radiant Staff + Ember Dust \u2192 Enhanced Radiant Staff"
+  m_EditorClassIdentifier: 
+  m_inputs:
+  - m_item: {fileID: 11400000, guid: 73965be7dced8b241b816581054dbbea, type: 2}
+    m_amount: 1
+  - m_item: {fileID: 11400000, guid: 7b4ca125cbc2e2145abf19ebb1dccd2b, type: 2}
+    m_amount: 1
+  m_outputs:
+  - m_item: {fileID: 11400000, guid: f6bd851ffd48a6d46b103aa5395682bf, type: 2}
+    m_amount: 1
+  m_craftTime: 5
+  m_SuccessRate: 80

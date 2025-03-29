@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b687e4fbe3fee2a4cb29be467af14fff, type: 3}
+  m_Name: "Flame-Gold Ingot + Dragon Scale \u2192 Draconic Crown"
+  m_EditorClassIdentifier: 
+  m_inputs:
+  - m_item: {fileID: 11400000, guid: c5eb59904e176774a9ad2b2014b3a603, type: 2}
+    m_amount: 1
+  - m_item: {fileID: 11400000, guid: 5840fd2e1277a4644a00d58431a37736, type: 2}
+    m_amount: 1
+  m_outputs:
+  - m_item: {fileID: 11400000, guid: a3c3b1bf0f57010459426d4db51b1745, type: 2}
+    m_amount: 1
+  m_craftTime: 7
+  m_SuccessRate: 70

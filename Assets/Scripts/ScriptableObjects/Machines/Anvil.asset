@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76160989af6bd6744b9f2736df544aad, type: 3}
+  m_Name: Anvil
+  m_EditorClassIdentifier: 
+  m_icon: {fileID: 21300000, guid: fa165f5051b385041b152b5cad2f9cb3, type: 3}
+  m_machineName: Anvil
+  m_description: Forges Steel Ingot from Iron Ingot and Fire Shard
+  m_recipes:
+  - {fileID: 11400000, guid: edbf4b7a429c35748a8289bf2eddb32c, type: 2}
+  - {fileID: 11400000, guid: 93599bc932d0f0b4a82aea8518d2f69d, type: 2}
+  m_isUnlocked: 1
