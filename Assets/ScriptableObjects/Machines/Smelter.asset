@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_icon: {fileID: 21300000, guid: 90930c2e3099dee41a99e1ce43ae6554, type: 3}
   m_machineName: Smelter
-  m_description: Converts Iron Ore into Iron Ingot
+  m_description: Converts ores into ingots
   m_recipes:
   - {fileID: 11400000, guid: aa2079e08b49ef748a7031201baf5f84, type: 2}
   - {fileID: 11400000, guid: 3c3633e3205f07643ae7debbc905d883, type: 2}

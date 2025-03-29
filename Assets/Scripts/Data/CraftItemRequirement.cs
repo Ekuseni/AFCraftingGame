@@ -11,9 +11,9 @@ namespace Data
         
         public override bool CheckRequirement(GameState gameState)
         {
-            if(gameState.inventory.TryGetValue(m_itemToCraft.id, out int amount))
+            if(gameState.inventory.TryGetValue(m_itemToCraft.id, out var model))
             {
-                return amount >= m_amountToCraft;
+                return model.Count >= m_amountToCraft;
             }
             
             return false;

@@ -189,8 +189,9 @@ GameObject:
   - component: {fileID: 4750807893044225854}
   - component: {fileID: 7388181039848839017}
   - component: {fileID: 5381831385898049064}
+  - component: {fileID: 7454903495926655360}
   m_Layer: 5
-  m_Name: Machine
+  m_Name: MachineSidePanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -352,6 +353,14 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!222 &7454903495926655360
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1935172993580263702}
+  m_CullTransparentMesh: 1
 --- !u!1 &4881384566078577208
 GameObject:
   m_ObjectHideFlags: 0

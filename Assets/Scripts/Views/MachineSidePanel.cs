@@ -1,13 +1,12 @@
 using System;
 using Data;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace Views
 {
-    public class MachineView : MonoBehaviour
+    public class MachineSidepanel : MonoBehaviour
     {
         [SerializeField] private Image m_image;
         [SerializeField] private TextMeshProUGUI m_nameText;

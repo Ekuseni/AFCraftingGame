@@ -27,7 +27,7 @@ namespace Data
         {
             foreach (var item in m_items)
             {
-                if (!gameState.inventory.TryAdd(item.id, 0))
+                if (!gameState.inventory.TryAdd(item.id, new Models.Item(item)))
                 {
                     throw new System.Exception($"Item with id {item.id} already exists in inventory");
                 }

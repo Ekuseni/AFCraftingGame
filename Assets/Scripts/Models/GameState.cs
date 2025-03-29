@@ -4,7 +4,7 @@ namespace Models
 {
     public class GameState
     {
-        public Dictionary<int, int> inventory { get; private set; } = new();
+        public Dictionary<int, Item> inventory { get; private set; } = new();
         public Dictionary<int,int> bonusItems { get; private set; } = new();
         
         public float craftingTimeModifier { get; private set; }
