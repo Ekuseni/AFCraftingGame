@@ -16,3 +16,5 @@ MonoBehaviour:
   m_description: Craft 2 Ember Blades
   m_requirements:
   - {fileID: 11400000, guid: 1036ee04b0eaccf4c9a467488bd37a6f, type: 2}
+  m_rewards:
+  - {fileID: 11400000, guid: 68dc2ff6eb243cf489ed7f4036e19922, type: 2}

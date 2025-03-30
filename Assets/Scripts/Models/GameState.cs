@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Data;
 
 namespace Models
@@ -39,6 +40,11 @@ namespace Models
                     inventory.Add(recipeItem.item.id, new Item(recipeItem.item){Count = recipeItem.amount});
                 }
             }
+        }
+        
+        public void UnlockMachine(Data.Machine machineToUnlock)
+        {
+            machines.First(machine => machine.data == machineToUnlock).Unlock();
         }
        
     }

@@ -16,3 +16,5 @@ MonoBehaviour:
   m_description: Craft 5 Iron Ingots
   m_requirements:
   - {fileID: 11400000, guid: 4c77c85eec58f7d43ae6b680bdd55a8e, type: 2}
+  m_rewards:
+  - {fileID: 11400000, guid: 4066ae23a69dfb649add9a6192396679, type: 2}

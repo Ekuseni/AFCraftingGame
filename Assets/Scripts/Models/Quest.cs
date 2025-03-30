@@ -4,6 +4,7 @@ namespace Models
 {
     public class Quest
     {
+        private GameState gameState { get; }
         public Data.Quest data { get; }
 
         private List<QuestProgress> questProgress { get; }
@@ -13,6 +14,7 @@ namespace Models
         public Quest(Data.Quest data, GameState gameState)
         {
             this.data = data;
+            this.gameState = gameState;
 
             questProgress = new List<QuestProgress>();
             
@@ -39,6 +41,11 @@ namespace Models
             }
             
             OnQuestProgress?.Invoke(progressSum / total);
+            
+            if (progressSum >= total)
+            {
+                data.ClaimReward(gameState);
+            }
         }
     }
 }

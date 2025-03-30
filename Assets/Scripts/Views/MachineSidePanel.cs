@@ -43,6 +43,12 @@ namespace Views
         {
             m_sliderCanvasGroup.alpha = 0;
         }
+
+        public void Unlock()
+        {
+            m_canvasGroup.alpha = 1;
+            m_canvasGroup.interactable = true;
+        }
     }
 }
 

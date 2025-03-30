@@ -13,7 +13,8 @@ namespace Models
 
         public Dictionary<Data.Recipe, Recipe> recipes { get; } = new();
         
-        public event Action<Queue<CraftingProcess>> OnQueueChanged; 
+        public event Action<Queue<CraftingProcess>> OnQueueChanged;
+        public event Action OnUnlock;
         
         public Machine(Data.Machine data)
         {
@@ -56,6 +57,10 @@ namespace Models
             OnQueueChanged?.Invoke(craftingQueue);
         }
         
+        public void Unlock()
+        {
+            OnUnlock?.Invoke();
+        }
     }
 }
 

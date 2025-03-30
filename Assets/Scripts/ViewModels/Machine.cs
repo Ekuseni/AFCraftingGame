@@ -16,8 +16,13 @@ namespace ViewModels
             m_mainPanel = mainPanel;
             m_model = model;
             m_gameState = gameState;
-            
+            m_model.OnUnlock += Unlock;
             m_sidePanel.SetupMachineView(model, OnClick, OnUpdate);
+        }
+
+        private void Unlock()
+        {
+            m_sidePanel.Unlock();
         }
 
         private void OnClick()
