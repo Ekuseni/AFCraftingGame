@@ -35,7 +35,7 @@ namespace Data
             
             foreach (var bonusItem in m_bonusItems)
             {
-                if (!gameState.bonusItems.TryAdd(bonusItem.id, 0))
+                if (!gameState.bonusItems.TryAdd(bonusItem.id,  new Models.BonusItem(bonusItem)))
                 {
                     throw new System.Exception($"BonusItem with id {bonusItem.id} already exists in bonusItems");
                 }

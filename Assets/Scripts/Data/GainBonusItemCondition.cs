@@ -11,7 +11,7 @@ namespace Data
 
         public override void ApplyStartingCondition(GameState gameState)
         {
-           gameState.bonusItems[item.id] += gainItemChance.GetGain();
+           gameState.bonusItems[item.id].Count += gainItemChance.GetGain();
         }
     }    
 }

@@ -8,12 +8,14 @@ namespace ViewModels
         private readonly Views.MachineSidepanel m_sidePanel;
         private readonly Views.MachineMainPanel m_mainPanel;
         private readonly Models.Machine m_model;
+        private readonly GameState m_gameState;
         
-        public Machine(Views.MachineSidepanel sidePanel, Views.MachineMainPanel mainPanel, Models.Machine model)
+        public Machine(Views.MachineSidepanel sidePanel, Views.MachineMainPanel mainPanel, Models.Machine model, GameState gameState)
         {
             m_sidePanel = sidePanel;
             m_mainPanel = mainPanel;
             m_model = model;
+            m_gameState = gameState;
             
             m_sidePanel.SetupMachineView(model, OnClick, OnUpdate);
         }
@@ -50,6 +52,11 @@ namespace ViewModels
             m_sidePanel.HideProgress();
             m_model.recipes[recipe].Finish(success);
             m_model.Dequeue();
+            
+            if(success)
+            {
+               m_gameState.AddItems(recipe.outputs);
+            }
         }
     }
 }

@@ -1,7 +1,6 @@
 using Data;
 using Models;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Views;
 
@@ -15,6 +14,13 @@ namespace Installers
         [SerializeField] private Views.Item itemPrefab;
         [SerializeField] private RectTransform itemsParent;
         [SerializeField] private GridLayoutGroup gridLayoutGroup;
+        
+        [SerializeField] private Views.BonusItem bonusItemPrefab;
+        [SerializeField] private RectTransform bonusItemsParent;
+        
+        [SerializeField] private Data.Quest[] quests;
+        [SerializeField] private Views.Quest questPrefab;
+        [SerializeField] private RectTransform questsParent;
         
         [SerializeField] private MachineDataBase machineData;
         [SerializeField] private MachineSidepanel machineSidePanelPrefab;
@@ -40,6 +46,23 @@ namespace Installers
                 new ViewModels.Item(value, item);
             }
             
+            foreach (var (key, value) in gameState.bonusItems)
+            {
+                var item = Instantiate(bonusItemPrefab, bonusItemsParent);
+                item.InitializeItemView(itemData.GetBonusItemById(key));
+                
+                new ViewModels.BonusItem(value, item);
+            }
+            
+            foreach (var quest in quests)
+            {
+                var questView = Instantiate(questPrefab, questsParent);
+                var questModel = new Models.Quest(quest);
+                questView.InitializeQuestView(questModel);
+                
+                new ViewModels.Quest(questModel, questView);
+            }
+            
             await Awaitable.NextFrameAsync();
             
             startingConditions.ApplyStartingConditions(gameState);
@@ -59,7 +82,7 @@ namespace Installers
                 var machineSidePanel = Instantiate(machineSidePanelPrefab, machinesParent);
                 var machineModel = new Models.Machine(machine);
                 
-                new ViewModels.Machine(machineSidePanel, machineMainPanel, machineModel);
+                new ViewModels.Machine(machineSidePanel, machineMainPanel, machineModel, gameState);
             }
             
             machineMainPanel.gameObject.SetActive(false);

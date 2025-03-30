@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1558455df2b3a8c4381804b9401a813c, type: 3}
   m_Name: Elemental
   m_EditorClassIdentifier: 
-  m_questName: 
-  m_description: 
-  m_requirements: []
+  m_questName: Elemental
+  m_description: Craft 2 Ember Blades
+  m_requirements:
+  - {fileID: 11400000, guid: 1036ee04b0eaccf4c9a467488bd37a6f, type: 2}
