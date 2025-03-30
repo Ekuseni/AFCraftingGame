@@ -1,4 +1,5 @@
 using System;
+using Models;
 using UnityEngine;
 
 namespace Data
@@ -27,9 +28,9 @@ namespace Data
         public float craftTime => m_craftTime;
         public float successRate => m_SuccessRate;
         
-        public bool IsCraftingSuccessful()
+        public bool IsCraftingSuccessful(GameState gameState)
         {
-            return UnityEngine.Random.Range(0f, 100f) <= m_SuccessRate;
+            return UnityEngine.Random.Range(0f, 100f) <= m_SuccessRate + gameState.successRateModifier;
         }
     }
 }

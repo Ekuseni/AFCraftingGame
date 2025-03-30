@@ -33,7 +33,7 @@ namespace ViewModels
 
         private void CraftClicked(Data.Recipe recipe)
         {
-            var craftingProcess = new CraftingProcess(recipe);
+            var craftingProcess = new CraftingProcess(recipe, m_gameState);
             craftingProcess.OnCraftingProgressChanged += UpdateProgress;
             craftingProcess.OnCraftingFinished += CraftingFinished;
             m_model.Enqueue(craftingProcess);

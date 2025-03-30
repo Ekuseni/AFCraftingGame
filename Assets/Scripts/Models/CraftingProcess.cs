@@ -10,12 +10,14 @@ namespace Models
 
         private readonly float adjuestedTime;
         private float timeLeft;
+        private GameState gameState;
         
-        public CraftingProcess(Data.Recipe recipe)
+        public CraftingProcess(Data.Recipe recipe, GameState gameState)
         {
             data = recipe;
-            adjuestedTime = recipe.craftTime;
+            adjuestedTime = recipe.craftTime - gameState.craftingTimeModifier;
             timeLeft = adjuestedTime;
+            this.gameState = gameState;
         }
         
         public void Update(float deltaTime)
@@ -26,7 +28,7 @@ namespace Models
             
             if (timeLeft <= 0)
             {
-                OnCraftingFinished?.Invoke(data, data.IsCraftingSuccessful());
+                OnCraftingFinished?.Invoke(data, data.IsCraftingSuccessful(gameState));
             }
         }
     }    

@@ -1,5 +1,3 @@
-using UnityEngine;
-
 namespace ViewModels
 {
     public class BonusItem
