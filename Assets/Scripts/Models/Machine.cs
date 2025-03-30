@@ -7,10 +7,13 @@ namespace Models
     {
         public Data.Machine data { get; }
         
-        public Queue<CraftingProcess> craftingQueue { get; } = new();
-        public CraftingProcess currentCraftingProcess { get; set; }
+        
+        private Queue<CraftingProcess> craftingQueue { get; } = new();
+        public CraftingProcess currentCraftingProcess { get; private set; }
 
         public Dictionary<Data.Recipe, Recipe> recipes { get; } = new();
+        
+        public event Action<Queue<CraftingProcess>> OnQueueChanged; 
         
         public Machine(Data.Machine data)
         {
@@ -21,7 +24,38 @@ namespace Models
                 recipes.Add(recipe, new Recipe(recipe));
             }
         }
-    }
+        
+        public void Enqueue(CraftingProcess process)
+        {
+            if (currentCraftingProcess == null)
+            {
+                currentCraftingProcess = process;
+            }
+            else
+            {
+                craftingQueue.Enqueue(process);
+                OnQueueChanged?.Invoke(craftingQueue);
+            }
+        }
+        
+        public void Dequeue()
+        {
+            if (craftingQueue.Count > 0)
+            {
+                currentCraftingProcess = craftingQueue.Dequeue();
+                OnQueueChanged?.Invoke(craftingQueue);
+            }
+            else
+            {
+                currentCraftingProcess = null;
+            }
+        }
 
+        public void UpdateQueue()
+        {
+            OnQueueChanged?.Invoke(craftingQueue);
+        }
+        
+    }
 }
 

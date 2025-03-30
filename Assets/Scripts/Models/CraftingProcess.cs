@@ -6,9 +6,8 @@ namespace Models
     {
         public event Action<Data.Recipe, float> OnCraftingProgressChanged;
         public event Action<Data.Recipe, bool> OnCraftingFinished;
-        
-        private readonly Data.Recipe data;
-        
+        public Data.Recipe data { get; }
+
         private readonly float adjuestedTime;
         private float timeLeft;
         

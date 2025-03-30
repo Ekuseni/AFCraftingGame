@@ -21,6 +21,7 @@ namespace ViewModels
         private void OnClick()
         {
             m_mainPanel.DisplayMachine(m_model, CraftClicked);
+            m_model.UpdateQueue();
         }
 
         private void CraftClicked(Data.Recipe recipe)
@@ -28,15 +29,7 @@ namespace ViewModels
             var craftingProcess = new CraftingProcess(recipe);
             craftingProcess.OnCraftingProgressChanged += UpdateProgress;
             craftingProcess.OnCraftingFinished += CraftingFinished;
-            
-            if (m_model.currentCraftingProcess == null)
-            {
-                m_model.currentCraftingProcess = craftingProcess;
-            }
-            else
-            {
-                m_model.craftingQueue.Enqueue(craftingProcess);    
-            }
+            m_model.Enqueue(craftingProcess);
         }
 
         private void UpdateProgress(Data.Recipe recipe, float progress)
@@ -56,7 +49,7 @@ namespace ViewModels
             m_model.currentCraftingProcess.OnCraftingProgressChanged -= UpdateProgress;
             m_sidePanel.HideProgress();
             m_model.recipes[recipe].Finish(success);
-            m_model.currentCraftingProcess = m_model.craftingQueue.Count > 0 ? m_model.craftingQueue.Dequeue() : null;
+            m_model.Dequeue();
         }
     }
 }

@@ -1,5 +1,6 @@
 using System;
-using Data;
+using System.Collections.Generic;
+using Models;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,6 +16,9 @@ namespace Views
         [SerializeField] private TextMeshProUGUI machineDescriptionText;
         
         [SerializeField] private Recipe[] recipes;
+        [SerializeField] private Queue queue;
+        
+        private Machine m_currentMachine;
         
         private void Start()
         {
@@ -24,8 +28,17 @@ namespace Views
             });
         }
         
-        public void DisplayMachine(Models.Machine machine, Action<Data.Recipe> onCraftClicked)
+        public void DisplayMachine(Machine machine, Action<Data.Recipe> onCraftClicked)
         {
+            if (m_currentMachine == machine) return;
+            
+            if (m_currentMachine != null)
+            {
+                m_currentMachine.OnQueueChanged -= UpdateQueue;
+            }
+            
+            m_currentMachine = machine;
+            
             machinePanel.SetActive(true);
             machineImage.sprite = machine.data.icon;
             machineNameText.text = machine.data.machineName;
@@ -38,6 +51,13 @@ namespace Views
                 recipes[i].DisplayRecipe(keyValue.Value, onCraftClicked);
                 i++;
             }
+            
+            machine.OnQueueChanged += UpdateQueue;
+        }
+
+        private void UpdateQueue(Queue<CraftingProcess> queue)
+        {
+           this.queue.DisplayQueue(queue);
         }
     }
 }
