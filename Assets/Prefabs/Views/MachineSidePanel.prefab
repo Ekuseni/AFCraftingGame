@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1249274575713839810}
   - component: {fileID: 4428506726495642652}
   - component: {fileID: 3261221622384729881}
+  - component: {fileID: 6860042269831452144}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -110,6 +111,18 @@ MonoBehaviour:
   m_FlexibleWidth: 1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!225 &6860042269831452144
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1005444698308739444}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1482796702380021300
 GameObject:
   m_ObjectHideFlags: 0
@@ -168,7 +181,7 @@ MonoBehaviour:
   m_ChildAlignment: 0
   m_Spacing: 10
   m_ChildForceExpandWidth: 1
-  m_ChildForceExpandHeight: 1
+  m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 1
   m_ChildControlHeight: 1
   m_ChildScaleWidth: 0
@@ -235,6 +248,7 @@ MonoBehaviour:
   m_slider: {fileID: 4428506726495642652}
   m_button: {fileID: 3286182461159103775}
   m_canvasGroup: {fileID: 5381831385898049064}
+  m_sliderCanvasGroup: {fileID: 6860042269831452144}
 --- !u!114 &4891835735204137474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -338,7 +352,7 @@ MonoBehaviour:
   m_MinHeight: -1
   m_PreferredWidth: -1
   m_PreferredHeight: -1
-  m_FlexibleWidth: 0
+  m_FlexibleWidth: -1
   m_FlexibleHeight: 0
   m_LayoutPriority: 1
 --- !u!225 &5381831385898049064

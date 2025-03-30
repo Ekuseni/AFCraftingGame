@@ -1,3 +1,4 @@
+using System;
 using Data;
 using TMPro;
 using UnityEngine;
@@ -23,19 +24,21 @@ namespace Views
             });
         }
         
-        public void DisplayMachine(Machine machine)
+        public void DisplayMachine(Models.Machine machine, Action<Data.Recipe> onCraftClicked)
         {
             machinePanel.SetActive(true);
-            machineImage.sprite = machine.icon;
-            machineNameText.text = machine.machineName;
-            machineDescriptionText.text = machine.description;
+            machineImage.sprite = machine.data.icon;
+            machineNameText.text = machine.data.machineName;
+            machineDescriptionText.text = machine.data.description;
 
-            for (int i = 0; i < recipes.Length; i++)
+            int i = 0;
+            
+            foreach (var keyValue in machine.recipes)
             {
-                recipes[i].DisplayRecipe(machine.recipes[i]);
+                recipes[i].DisplayRecipe(keyValue.Value, onCraftClicked);
+                i++;
             }
         }
     }
-
 }
 

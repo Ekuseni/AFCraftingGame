@@ -26,6 +26,11 @@ namespace Data
         public RecipeItem[] outputs => m_outputs;
         public float craftTime => m_craftTime;
         public float successRate => m_SuccessRate;
+        
+        public bool IsCraftingSuccessful()
+        {
+            return UnityEngine.Random.Range(0f, 100f) <= m_SuccessRate;
+        }
     }
 }
 
