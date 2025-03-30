@@ -7,6 +7,10 @@ namespace Models
     {
         public Dictionary<int, Item> inventory { get; private set; } = new();
         public Dictionary<int, BonusItem> bonusItems { get; private set; } = new();
+
+        public List<Machine> machines { get; private set; } = new();
+        
+        public List<Quest> quests { get; private set; } = new();
         
         public float craftingTimeModifier { get; private set; }
         public float successRateModifier { get; private set; }

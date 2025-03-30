@@ -5,7 +5,7 @@ namespace Data
 {
     public abstract class QuestRequirement : ScriptableObject
     {
-        public abstract bool CheckRequirement(GameState gameState);
+        public abstract QuestProgress GetQuestProgress(GameState gameState);
     }
 
 }

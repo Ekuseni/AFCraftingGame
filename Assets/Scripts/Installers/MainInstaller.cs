@@ -54,18 +54,21 @@ namespace Installers
                 new ViewModels.BonusItem(value, item);
             }
             
+            startingConditions.ApplyStartingConditions(gameState);
+            
             foreach (var quest in quests)
             {
                 var questView = Instantiate(questPrefab, questsParent);
-                var questModel = new Models.Quest(quest);
+                var questModel = new Models.Quest(quest, gameState);
                 questView.InitializeQuestView(questModel);
                 
+                gameState.quests.Add(questModel);
                 new ViewModels.Quest(questModel, questView);
             }
             
             await Awaitable.NextFrameAsync();
             
-            startingConditions.ApplyStartingConditions(gameState);
+            
             var minSize = Vector2.zero;
             
             foreach (RectTransform child in itemsParent)
@@ -81,7 +84,7 @@ namespace Installers
             {
                 var machineSidePanel = Instantiate(machineSidePanelPrefab, machinesParent);
                 var machineModel = new Models.Machine(machine);
-                
+                gameState.machines.Add(machineModel);
                 new ViewModels.Machine(machineSidePanel, machineMainPanel, machineModel, gameState);
             }
             

@@ -11,6 +11,8 @@ namespace ViewModels
         {
             m_model = model;
             m_view = view;
+            
+            model.OnQuestProgress += view.UpdateProgress;
         }
     }
 }
